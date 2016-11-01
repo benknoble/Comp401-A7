@@ -1,4 +1,4 @@
-package a7tests.david3;
+ package a7tests.david3;
 
 import static org.junit.Assert.*;
 
@@ -78,8 +78,8 @@ public class ObservablePictures {
 
 	try {
 	    p.unregisterROIObservers(tiny);
-	    fail("didn't throw for observer not registered");
-	} catch (IllegalArgumentException e) {
+	} catch (Exception e) {
+	    fail("legal unregistration of unregistered observer threw: " + e.getMessage());
 	}
 
 	try {

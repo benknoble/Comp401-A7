@@ -1,4 +1,4 @@
-package tests;
+package a7tests.brooksmt;
 
 import org.junit.Test;
 import a7.*;
@@ -36,7 +36,7 @@ public class A7Test {
         try {
             Coordinate a3 = new Coordinate(0, -1);
             Coordinate b3 = new Coordinate(4, 5);
-            Region c3 = new RegionImpl(a3, b3);
+            new RegionImpl(a3, b3);
         }catch (IllegalArgumentException iae){
             System.out.println("Negative coordinate caught");
         }catch (RuntimeException e){
@@ -46,7 +46,7 @@ public class A7Test {
         try{
             Coordinate a4 = null;
             Coordinate b4 = new Coordinate(1, 1);
-            Region c4 = new RegionImpl(a4, b4);
+            new RegionImpl(a4, b4);
         }catch (IllegalArgumentException iae){
             System.out.println("Null coordinate in Region caught");
         }catch (NullPointerException ne){
