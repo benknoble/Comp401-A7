@@ -143,6 +143,8 @@ public class Regions {
 	try {
 	    assertTrue("intersection of region inside region isn't inner region",
 		    regionsEqual(tiny, big.intersect(tiny)));
+	    assertTrue("intersection of region inside region isn't inner region",
+		    regionsEqual(tiny, tiny.intersect(big)));
 	} catch (NoIntersectionException e) {
 	    fail("intersecting regions threw");
 	}
