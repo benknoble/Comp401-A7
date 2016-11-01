@@ -1,14 +1,8 @@
 package a7test;
 
 import static org.junit.Assert.*;
-
-import java.awt.Desktop;
-import java.io.IOException;
-import java.net.URI;
 import java.util.Arrays;
-
 import org.junit.Test;
-
 import a7.*;
 
 public class ObservablePictureTest {
