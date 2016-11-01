@@ -17,7 +17,7 @@ public class ObservablePictureTest {
 	public void JeroensA7Test() {
 
 		/*UNC Chapel Hill COMP401 assignment 7 jUnit tests
-		 * by Jeroen. www.jersoe.com
+		 * by Jeroen.
 		 * 
 		 * Let's start this testing adventure by explaining what this test is up to.
 		 * See http://imgur.com/9Pj6pNT and fear my 1337 paint skills.
