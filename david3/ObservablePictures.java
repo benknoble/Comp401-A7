@@ -1,10 +1,12 @@
- package a7tests.david3;
+package a7tests.david3;
 
 import static org.junit.Assert.*;
 
 import org.junit.Test;
 
 import a7.*;
+
+import java.util.*;
 
 public class ObservablePictures {
 
@@ -36,9 +38,12 @@ public class ObservablePictures {
 	public void notify(ObservablePicture picture, Region changed_region) {
 	    picture.setPixel(c00, pix);
 	}
-    }; //this one changes the original pixel at 00 in order to have it's notifications observered by the tests.
-    //DO NOT LET OBSERVABLEOBSERVER OBSERVE A REGION WITH 00 IN IT OR YOU WILL GET STACKOVERFLOW
-    //this is because changes in the region will prompt a change at 00 which prompts a change at 00 ad infinitum.
+    }; // this one changes the original pixel at 00 in order to have it's
+       // notifications observered by the tests.
+       // DO NOT LET OBSERVABLEOBSERVER OBSERVE A REGION WITH 00 IN IT OR YOU
+       // WILL GET STACKOVERFLOW
+       // this is because changes in the region will prompt a change at 00 which
+       // prompts a change at 00 ad infinitum.
 
     @Test
     public void testRegisterROIObserver() {
@@ -133,14 +138,15 @@ public class ObservablePictures {
 	try {
 	    ROIObserver[] r = p.findROIObservers(big);
 	    assertTrue("observers not found",
-		    r != null && r.length == 2 && ((r[0] == obsA && r[1] == obsB) || r[0] == obsB && r[1] == obsA));
+		    r != null && r.length == 3 && Arrays.asList(r).contains(obsA) && Arrays.asList(r).contains(obsB));
 	} catch (Exception e) {
 	    fail("finding observers threw: " + e.getMessage());
 	}
 
 	try {
 	    ROIObserver[] r = p.findROIObservers(tiny);
-	    assertTrue("observer not found", r != null && r.length == 1 && r[0] == obsB);
+	    assertTrue("observer not found",
+		    r != null && r.length == 3 && Arrays.asList(r).contains(obsA) && Arrays.asList(r).contains(obsB));
 	} catch (Exception e) {
 	    fail("finding observers threw: " + e.getMessage());
 	}
@@ -152,7 +158,8 @@ public class ObservablePictures {
 	p.registerROIObserver(observableObserver, tiny);
 	p.suspendObservable();
 	p.setPixel(c22, new GrayPixel(.1));
-	assertTrue("observer was notified when observable was suspended", p.getPixel(c00).getIntensity() != pix.getIntensity());
+	assertTrue("observer was notified when observable was suspended",
+		p.getPixel(c00).getIntensity() != pix.getIntensity());
     }
 
     @Test
