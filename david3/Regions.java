@@ -166,9 +166,11 @@ public class Regions {
 	
 	Region tiny = new RegionImpl(c22,c33);
 	assertTrue("outer U inner doesn't equal outer", regionsEqual(big, big.union(tiny)));
+	assertTrue("outer U inner doesn't equal outer", regionsEqual(big, tiny.union(big)));
 	Region r = new RegionImpl(c00, c22);
 	Region s = new RegionImpl(c11, c33);
 	assertTrue("00->22 U 11->33 doesn't equal 00->33", regionsEqual(big, r.union(s)));
+	assertTrue("00->22 U 11->33 doesn't equal 00->33", regionsEqual(big, s.union(r)));
     }
 
     static boolean regionsEqual(Region a, Region b) {
