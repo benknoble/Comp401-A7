@@ -1,4 +1,4 @@
-package a7test;
+package a7tests.jeroen;
 
 import a7.*;
 
