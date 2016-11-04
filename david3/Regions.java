@@ -152,7 +152,8 @@ public class Regions {
 	Region r = new RegionImpl(c00, c22);
 	Region s = new RegionImpl(c11, c33);
 	try {
-	    assertTrue("intersection  not equal to expectation", regionsEqual(new RegionImpl(c11, c22), r.intersect(s)));
+	    assertTrue("intersection  not equal to expectation",
+		    regionsEqual(new RegionImpl(c11, c22), r.intersect(s)));
 	} catch (NoIntersectionException e) {
 	    fail("intersecting regions threw");
 	}
@@ -163,8 +164,8 @@ public class Regions {
 	Region big = new RegionImpl(c00, c33);
 	assertTrue("region U null doesn't equal itself", regionsEqual(big, big.union(null)));
 	assertTrue("region U itself doesn't equal itself", regionsEqual(big, big.union(big)));
-	
-	Region tiny = new RegionImpl(c22,c33);
+
+	Region tiny = new RegionImpl(c22, c33);
 	assertTrue("outer U inner doesn't equal outer", regionsEqual(big, big.union(tiny)));
 	assertTrue("outer U inner doesn't equal outer", regionsEqual(big, tiny.union(big)));
 	Region r = new RegionImpl(c00, c22);
