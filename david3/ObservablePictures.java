@@ -108,8 +108,8 @@ public class ObservablePictures {
 
 	try {
 	    p.unregisterROIObserver(obsB);
-	    fail("didn't throw for unregistration of observer not registered");
 	} catch (IllegalArgumentException e) {
+	    fail("legal unregistration of unregistered observer threw: " + e.getMessage());
 	}
 
 	try {
@@ -157,7 +157,7 @@ public class ObservablePictures {
 	p.registerROIObserver(observableObserver, tiny);
 	p.suspendObservable();
 	p.setPixel(c22, new GrayPixel(.1));
-	//Check for no output
+	//Check for no output "observer notified"
     }
 
     @Test
@@ -167,7 +167,7 @@ public class ObservablePictures {
 	p.suspendObservable();
 	p.setPixel(c22, new GrayPixel(.1));
 	p.resumeObservable();
-	//check for output
+	//check for output "observer notified"
     }
 
 }
