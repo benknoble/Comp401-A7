@@ -101,21 +101,6 @@ public class ObservablePictureTest {
 		o4.getLastRegion().getRight(), 3);
 	assertEquals("resumeObserverable() didn't notifiy observers with the right region",
 		o4.getLastRegion().getBottom(), 7);
-	    
-	// suspend and resume again, this time only change one pixel.
-	p.suspendObservable();
-	p.setPixel(2, 7, randomPixel());
-	/* 
-	 * if your code is correct
-	 * ....getRight() should be 2 instead of 3 
-	 *  
-	 */
-	p.resumeObservable();
-	assertEquals("resumeObserverable() didn't notifiy observers with the right region",
-		o4.getLastRegion().getRight(), 2);
-	    
-	    
-
 
 	/*
 	 * Unregister all observers that are watching the top half of the
