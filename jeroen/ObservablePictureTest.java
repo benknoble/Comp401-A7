@@ -1,7 +1,6 @@
 package a7tests.jeroen;
 
 import static org.junit.Assert.*;
-import java.util.Arrays;
 import org.junit.Test;
 import a7.*;
 
@@ -101,6 +100,18 @@ public class ObservablePictureTest {
 		o4.getLastRegion().getRight(), 3);
 	assertEquals("resumeObserverable() didn't notifiy observers with the right region",
 		o4.getLastRegion().getBottom(), 7);
+	    
+	// suspend and resume again, this time only change one pixel.
+	p.suspendObservable();
+	p.setPixel(2, 7, randomPixel());
+	/* 
+	 * if your code is correct
+	 * ....getRight() should be 2 instead of 3 
+	 *  
+	 */
+	p.resumeObservable();
+	assertEquals("resumeObserverable() didn't notifiy observers with the right region",
+		o4.getLastRegion().getRight(), 2);
 
 	/*
 	 * Unregister all observers that are watching the top half of the
@@ -113,6 +124,30 @@ public class ObservablePictureTest {
 		Arrays.asList(p.findROIObservers(new RegionImpl(c1, new Coordinate(9, 9)))).size(), 1);
 	assertEquals("unregisterROIObservers failed", p.findROIObservers(new RegionImpl(c1, new Coordinate(9, 9)))[0],
 		o4);
+    }
+    
+    @Test
+    public void howROIObserverShouldWorkTest(){
+    	ObservablePicture p = new ObservablePictureImpl(new PictureImpl(10,10));
+    	
+    	TestROIObserver a = new TestROIObserverImpl();
+    	TestROIObserver b = new TestROIObserverImpl();
+    	
+    	p.registerROIObserver(a, new RegionImpl(new Coordinate(1,1),new Coordinate(5,5)));
+    	p.registerROIObserver(b, new RegionImpl(new Coordinate(0,0),new Coordinate(3,3)));
+    	p.registerROIObserver(b, new RegionImpl(new Coordinate(2,2),new Coordinate(7,7)));
+    	
+    	p.setPixel(1, 1, randomPixel());
+    	assertEquals("Test 1 failed", a.getLastRegion().getTop(),1);
+    	assertEquals("Test 1 failed", a.getLastRegion().getBottom(),1);
+    	assertEquals("Test 1 failed", a.getLastRegion().getLeft(),1);
+    	assertEquals("Test 1 failed", a.getLastRegion().getRight(),1);
+    	    	
+    	p.setPixel(2, 2, randomPixel());
+    	p.setPixel(8, 8, randomPixel());
+    	
+    	
+    	
     }
 
     /* Returns a random pixel */
