@@ -1,10 +1,11 @@
-package a7test;
+package a7tests.jeroen;
 
 import a7.*;
 
 public class TestROIObserverImpl implements TestROIObserver {
 	private ObservablePicture _lastPicture;
 	private Region _lastRegion;
+	private Region _priorLastRegion;
 	
 	@Override
 	/*Outputs some text and sets the _lastPicture and _lastRegion fields to parameters
@@ -16,6 +17,7 @@ public class TestROIObserverImpl implements TestROIObserver {
 				+changed_region.getLeft()+","+changed_region.getTop()+
 				" and "+changed_region.getRight()+","+changed_region.getBottom());
 		_lastPicture=picture;
+		_priorLastRegion=_lastRegion;
 		_lastRegion=changed_region;
 	}
 	
@@ -27,5 +29,10 @@ public class TestROIObserverImpl implements TestROIObserver {
 	/*Returns the region from the last notification*/
 	public Region getLastRegion(){
 		return _lastRegion;
+	}
+
+	@Override
+	public Region getPriorLastRegion() {
+		return _priorLastRegion;
 	}
 }
