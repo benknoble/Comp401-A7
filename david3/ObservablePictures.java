@@ -37,12 +37,7 @@ public class ObservablePictures {
 	public void notify(ObservablePicture picture, Region changed_region) {
 	    System.out.println("observer notified");
 	}
-    }; // this one changes the original pixel at 00 in order to have it's
-       // notifications observed by the tests.
-       // DO NOT LET OBSERVABLEOBSERVER OBSERVE A REGION WITH 00 IN IT OR YOU
-       // WILL GET STACKOVERFLOW
-       // this is because changes in the region will prompt a change at 00 which
-       // prompts a change at 00 ad infinitum.
+    };
 
     @Test
     public void testRegisterROIObserver() {
