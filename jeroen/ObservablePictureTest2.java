@@ -122,10 +122,4 @@ public class ObservablePictureTest2 {
     private static Pixel randomPixel() {
 	return new ColorPixel(Math.random(), Math.random(), Math.random());
     }
-
-    static boolean regionsEqual(Region a, Region b) {
-	return a.getUpperLeft().getX() == b.getUpperLeft().getX() && a.getUpperLeft().getY() == b.getUpperLeft().getY()
-		&& a.getLowerRight().getX() == b.getLowerRight().getX()
-		&& a.getLowerRight().getY() == b.getLowerRight().getY();
-    }
 }
