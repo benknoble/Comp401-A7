@@ -37,6 +37,7 @@ public class A7Test {
             Coordinate a3 = new Coordinate(0, -1);
             Coordinate b3 = new Coordinate(4, 5);
             new RegionImpl(a3, b3);
+            fail("Should have thrown IllegalArgumentException");
         }catch (IllegalArgumentException iae){
             System.out.println("Negative coordinate caught");
         }catch (RuntimeException e){
@@ -47,6 +48,7 @@ public class A7Test {
             Coordinate a4 = null;
             Coordinate b4 = new Coordinate(1, 1);
             new RegionImpl(a4, b4);
+            fail("Should have thrown IllegalArgumentException");
         }catch (IllegalArgumentException iae){
             System.out.println("Null coordinate in Region caught");
         }catch (NullPointerException ne){
