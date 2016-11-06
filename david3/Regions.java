@@ -154,6 +154,8 @@ public class Regions {
 	try {
 	    assertTrue("intersection  not equal to expectation",
 		    regionsEqual(new RegionImpl(c11, c22), r.intersect(s)));
+	    assertTrue("intersection not equal to expectation",
+		    regionsEqual(new RegionImpl(c11,c22), s.intersect(r)));
 	} catch (NoIntersectionException e) {
 	    fail("intersecting regions threw");
 	}
