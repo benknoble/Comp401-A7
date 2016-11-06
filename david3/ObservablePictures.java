@@ -59,7 +59,7 @@ public class ObservablePictures {
 	    assertTrue("observer not registered",
 		    p.findROIObservers(big).length == 1 && p.findROIObservers(big)[0] == obsA);
 	} catch (Exception e) {
-	    fail("legal registration threw error: " + e.getMessage());
+	    fail("legal registration threw error: " + e);
 	}
     }
 
@@ -78,14 +78,14 @@ public class ObservablePictures {
 	try {
 	    p.unregisterROIObservers(tiny);
 	} catch (Exception e) {
-	    fail("legal unregistration of unregistered observer threw: " + e.getMessage());
+	    fail("legal unregistration of unregistered observer threw: " + e);
 	}
 
 	try {
 	    p.unregisterROIObservers(big);
 	    assertTrue("obsA and obsB not unregistered", p.findROIObservers(big).length == 0);
 	} catch (Exception e) {
-	    fail("legal unregistration of multiple observers by region threw error: " + e.getMessage());
+	    fail("legal unregistration of multiple observers by region threw error: " + e);
 	}
     }
 
@@ -103,8 +103,8 @@ public class ObservablePictures {
 
 	try {
 	    p.unregisterROIObserver(obsB);
-	} catch (IllegalArgumentException e) {
-	    fail("legal unregistration of unregistered observer threw: " + e.getMessage());
+	} catch (Exception e) {
+	    fail("legal unregistration of unregistered observer threw: " + e);
 	}
 
 	try {
@@ -112,7 +112,7 @@ public class ObservablePictures {
 	    assertTrue("obsA not unregistered",
 		    p.findROIObservers(big).length == 0 && p.findROIObservers(tiny).length == 0);
 	} catch (Exception e) {
-	    fail("legal unregistration of observer threw error: " + e.getMessage());
+	    fail("legal unregistration of observer threw error: " + e);
 	}
     }
 
@@ -134,7 +134,7 @@ public class ObservablePictures {
 	    assertTrue("observers not found",
 		    r != null && r.length == 3 && Arrays.asList(r).contains(obsA) && Arrays.asList(r).contains(obsB));
 	} catch (Exception e) {
-	    fail("finding observers threw: " + e.getMessage());
+	    fail("finding observers threw: " + e);
 	}
 
 	try {
@@ -142,7 +142,7 @@ public class ObservablePictures {
 	    assertTrue("observer not found",
 		    r != null && r.length == 3 && Arrays.asList(r).contains(obsA) && Arrays.asList(r).contains(obsB));
 	} catch (Exception e) {
-	    fail("finding observers threw: " + e.getMessage());
+	    fail("finding observers threw: " + e);
 	}
     }
 
