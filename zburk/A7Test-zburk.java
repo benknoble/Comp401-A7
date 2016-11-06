@@ -1,4 +1,4 @@
-package a7tests;
+package a7tests.zburk;
 
 import static org.junit.Assert.*;
 
