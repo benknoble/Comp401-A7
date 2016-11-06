@@ -2,6 +2,8 @@ package a7tests.zburk;
 
 import static org.junit.Assert.*;
 
+import a7.*;
+
 import org.junit.Test;
 
 public class A7Test {
