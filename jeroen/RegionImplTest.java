@@ -8,6 +8,12 @@ import a7.*;
 
 public class RegionImplTest {
 
+	/*
+	 * UNC Chapel Hill COMP401 assignment 7 jUnit tests by Jeroen.
+	 * 
+	 * This tests intersect, getters, and union
+	 */
+
 	@Test
 	public void getterTest() {
 		Coordinate c1 = new Coordinate(1,2);
@@ -35,14 +41,11 @@ public class RegionImplTest {
 		Region r3;
 		
 		try {
-
 			r3 = r1.intersect(r2);
 			assertEquals("Intersect broken",r3.getLeft(),2);			
 		} catch (NoIntersectionException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			fail("Intersect threw NoIntersectionException but Regions overlap.");
 		}
-		
 		
 		try {
 			Coordinate c5 = new Coordinate(6,6);
@@ -59,8 +62,7 @@ public class RegionImplTest {
 			assertEquals("Intersect broken",r6.getLowerRight().getY(),4);
 			
 		} catch (NoIntersectionException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			fail("Intersect threw NoIntersectionException but Regions overlap.");
 		}
 
 		try {
@@ -79,8 +81,7 @@ public class RegionImplTest {
 			assertEquals("Intersect broken",r9.getLowerRight().getX(),4);
 			assertEquals("Intersect broken",r9.getLowerRight().getY(),4);
 		} catch (NoIntersectionException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			fail("Intersect threw NoIntersectionException but Regions overlap.");
 		}
 	}
 	
