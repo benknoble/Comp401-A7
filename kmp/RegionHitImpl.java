@@ -9,12 +9,12 @@ public class RegionHitImpl implements RegionHit {
 
 	private Region region;
 	private ObservablePicture picture;
-	
+
 	public RegionHitImpl(Region r, ObservablePicture p) {
 		region = r;
 		picture = p;
 	}
-	
+
 	@Override
 	public Coordinate getUpperLeft() {
 		return region.getUpperLeft();
