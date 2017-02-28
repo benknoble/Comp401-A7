@@ -9,27 +9,27 @@ import java.util.ArrayList;
 
 public class TestROIObserver implements ROIObserver {
 
-	List<RegionHit> hits;
+    List<RegionHit> hits;
 
-	public TestROIObserver() {
-		hits = new ArrayList<RegionHit>();
-	}
+    public TestROIObserver() {
+        hits = new ArrayList<RegionHit>();
+    }
 
-	public int getHitCount() {
-		return hits.size();
-	}
+    public int getHitCount() {
+        return hits.size();
+    }
 
-	public RegionHit[] getHits() {
-		return hits.toArray(new RegionHit[hits.size()]);
-	}
+    public RegionHit[] getHits() {
+        return hits.toArray(new RegionHit[hits.size()]);
+    }
 
-	public void reset() {
-		hits = new ArrayList<RegionHit>();
-	}
+    public void reset() {
+        hits = new ArrayList<RegionHit>();
+    }
 
-	@Override
-	public void notify(ObservablePicture picture, Region changed_region) {
-		hits.add(new RegionHitImpl(changed_region, picture));
-	}
+    @Override
+    public void notify(ObservablePicture picture, Region changed_region) {
+        hits.add(new RegionHitImpl(changed_region, picture));
+    }
 
 }

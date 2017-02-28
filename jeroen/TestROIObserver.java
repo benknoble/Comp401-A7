@@ -4,9 +4,9 @@ import a7.*;
 
 public interface TestROIObserver extends ROIObserver {
 
-	public ObservablePicture getLastPicture();
+    public ObservablePicture getLastPicture();
 
-	public Region getLastRegion();
+    public Region getLastRegion();
 
-	public Region getPriorLastRegion();
+    public Region getPriorLastRegion();
 }
