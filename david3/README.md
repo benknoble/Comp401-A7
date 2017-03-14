@@ -2,11 +2,11 @@
 
 This repo will hold tests for A7 for KMP's Fall 2016 Comp 401 class.
 
-###Usage
+### Usage
 
 Download the .java files and add them to a7 in Eclipse to use them
 
-###Contributing
+### Contributing
 
 This will be the standard for contributing JUnit tests for all remaining assignments. In order to add new tests, store the .java files in a directory named after your Onyen. Fork this repository, add your new folder, and submit a pull request.
 
