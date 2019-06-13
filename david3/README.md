@@ -1,5 +1,7 @@
 # Comp401-A7
 
+[![This project is archived](https://img.shields.io/badge/status-archived-critical.svg)](https://benknoble.github.io/status/archived/)
+
 This repo will hold tests for A7 for KMP's Fall 2016 Comp 401 class.
 
 ### Usage
